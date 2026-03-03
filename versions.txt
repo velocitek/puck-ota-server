@@ -1,5 +1,2 @@
-# esp32,01010002,rtk-puck-esp32-v1.1.0.2-761a9120cde07a9c29dca10a0570b761.bin
-stm32,01000500,rtk-puck-stm32-v1.0.5.0-a65a8145544b1566829ee89a764dc95e.bin
-
-# Test binaries 
 esp32,01010002,test_sm_ota_update.bin
+stm32,01000500,rtk-puck-stm32-v1.0.5.0-a65a8145544b1566829ee89a764dc95e.bin
