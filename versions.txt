@@ -1,2 +1,2 @@
 esp32,01010002,test_sm_ota_update.bin
-stm32,01000500,rtk-puck-stm32-v1.0.5.0-a65a8145544b1566829ee89a764dc95e.bin
+stm32,01000501,rtk-puck-stm32-v1.0.5.1-be71a535fed2d1bbe1abb449e580ab81.bin
