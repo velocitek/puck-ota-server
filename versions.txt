@@ -1,2 +1,2 @@
 esp32,01000308,rtk-puck-esp32-v1.0.3.8-9cd6964cff9aedab211256f1f5e8f898.bin
-stm32,01000507,rtk-puck-stm32-v1.0.5.7-96393cfd5ef5d269a510cc04b2694531.bin
+stm32,01000509,rtk-puck-stm32-v1.0.5.9-f1924821cee05f863b291cd8cad595bd.bin
