@@ -1,0 +1,1 @@
+stm32,01000521,rtk-puck-stm32-v1.0.5.33-d3115ef1c0ff4005abc8eaa22fedb558.bin
