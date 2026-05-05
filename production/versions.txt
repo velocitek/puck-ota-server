@@ -1,2 +1,2 @@
-stm32,0100054c,rtk-puck-stm32-v1.0.5.76-eeec5345b809ded33913074c2df31a1d-f2a6b4e7-dirty.bin
-esp32,01000349,rtk-puck-esp32-v1.0.3.73-af785bfc1e646550c20a030f20fb3a01-dc6d1382-dirty.bin
+stm32,0100054d,rtk-puck-stm32-v1.0.5.77-644e342b4c14284637799cddba909697-a39b1f71-dirty.bin
+esp32,0100034b,rtk-puck-esp32-v1.0.3.75-15763e7e4a2d93d92dbf8d5bef97a8d7-a39b1f71-dirty.bin
