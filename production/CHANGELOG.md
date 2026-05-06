@@ -1,5 +1,10 @@
 # Firmware Changelog — production
 
+## STM32 v1.0.5.83 / ESP32 v1.0.3.81 — 2026-05-06
+PCB Rev: D
+Source: d5a594f3-dirty
+- testing auto commit of Version bump
+
 ## STM32 v1.0.5.81 / ESP32 v1.0.3.79 — 2026-05-06
 PCB Rev: D
 Source: 47f4d1ae-dirty
