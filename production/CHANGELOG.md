@@ -1,5 +1,10 @@
 # Firmware Changelog — production
 
+## STM32 v1.0.5.85 / ESP32 v1.0.3.83 — 2026-05-07
+PCB Rev: D
+Source: dbeb6731-dirty
+- Change base to mast depths
+
 ## STM32 v1.0.5.84 / ESP32 v1.0.3.82 — 2026-05-06
 PCB Rev: D
 Source: ca0a7ae1-dirty
