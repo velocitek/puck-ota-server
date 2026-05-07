@@ -1,5 +1,10 @@
 # Firmware Changelog — oliver
 
+## STM32 v1.0.5.87 / ESP32 v1.0.3.85 — 2026-05-07
+PCB Rev: B
+Source: 07f6cd5d-dirty
+- fix incorrect Rev
+
 ## STM32 v1.0.5.86 / ESP32 v1.0.3.84 — 2026-05-07
 PCB Rev: D
 Source: a4d81efe-dirty
