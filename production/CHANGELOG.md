@@ -1,5 +1,10 @@
 # Firmware Changelog — production
 
+## STM32 v1.0.5.86 / ESP32 v1.0.3.84 — 2026-05-07
+PCB Rev: D
+Source: 115318de-dirty
+- health check Sea Skippers
+
 ## STM32 v1.0.5.85 / ESP32 v1.0.3.83 — 2026-05-07
 PCB Rev: D
 Source: dbeb6731-dirty
