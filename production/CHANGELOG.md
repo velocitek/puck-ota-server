@@ -1,5 +1,10 @@
 # Firmware Changelog — production
 
+## STM32 v1.0.5.87 / ESP32 v1.0.3.85 — 2026-05-07
+PCB Rev: D
+Source: bd6dafca-dirty
+- include wake beacon as competitor
+
 ## STM32 v1.0.5.86 / ESP32 v1.0.3.84 — 2026-05-07
 PCB Rev: D
 Source: 115318de-dirty
