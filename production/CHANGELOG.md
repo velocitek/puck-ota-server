@@ -1,5 +1,10 @@
 # Firmware Changelog — production
 
+## STM32 v1.0.5.88 / ESP32 v1.0.3.86 — 2026-05-07
+PCB Rev: D
+Source: ca78e966-dirty
+- update Provisioning data
+
 ## STM32 v1.0.5.87 / ESP32 v1.0.3.85 — 2026-05-07
 PCB Rev: D
 Source: bd6dafca-dirty
