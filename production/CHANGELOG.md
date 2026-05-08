@@ -1,5 +1,10 @@
 # Firmware Changelog — production
 
+## STM32 v1.0.5.90 / ESP32 v1.0.3.88 — 2026-05-08
+PCB Rev: D
+Source: d04388db-dirty
+- Update Provisioning data test coyote Point May,8
+
 ## STM32 v1.0.5.88 / ESP32 v1.0.3.86 — 2026-05-07
 PCB Rev: D
 Source: ca78e966-dirty
