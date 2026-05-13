@@ -1,5 +1,11 @@
 # Firmware Changelog — oliver
 
+## STM32 v1.0.5.96 / ESP32 v1.0.3.94 — 2026-05-13
+PCB Rev: B
+Source: 648d05e5-dirty
+- adds NO ROLE -> ROLE smooth error LED exit
+- testing
+
 ## STM32 v1.0.5.95 / ESP32 v1.0.3.93 — 2026-05-13
 PCB Rev: B
 Source: 7acaf4f2-dirty
