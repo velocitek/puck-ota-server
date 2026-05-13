@@ -1,5 +1,10 @@
 # Firmware Changelog — oliver
 
+## STM32 v1.0.5.93 / ESP32 v1.0.3.91 — 2026-05-13
+PCB Rev: B
+Source: a5adc5bb-dirty
+- fixes read provisioning data for puck_manager
+
 ## STM32 v1.0.5.92 / ESP32 v1.0.3.90 — 2026-05-13
 PCB Rev: B
 Source: 792da6aa-dirty
