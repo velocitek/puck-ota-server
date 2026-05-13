@@ -1,5 +1,11 @@
 # Firmware Changelog — oliver
 
+## STM32 v1.0.5.94 / ESP32 v1.0.3.92 — 2026-05-13
+PCB Rev: B
+Source: bcd9a298-dirty
+- fixes OTA triggering after OTA PROV broke it
+- fixes reading PROV data with Puck_Manager
+
 ## STM32 v1.0.5.93 / ESP32 v1.0.3.91 — 2026-05-13
 PCB Rev: B
 Source: a5adc5bb-dirty
