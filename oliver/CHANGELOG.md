@@ -1,5 +1,11 @@
 # Firmware Changelog — oliver
 
+## STM32 v1.0.5.97 / ESP32 v1.0.3.95 — 2026-05-13
+PCB Rev: B
+Source: 0df0fd51-dirty
+- adds RC and PIN new Role mechanics - seems to be working
+- testing OTA before release to Charles
+
 ## STM32 v1.0.5.96 / ESP32 v1.0.3.94 — 2026-05-13
 PCB Rev: B
 Source: 648d05e5-dirty
