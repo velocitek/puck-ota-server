@@ -1,5 +1,11 @@
 # Firmware Changelog — production
 
+## STM32 v1.0.5.98 / ESP32 v1.0.3.96 — 2026-05-13
+PCB Rev: D
+Source: fd45d51f
+- OTA Provisioning
+- Ready for Charles to test before Sonar NYYC Member champs
+
 ## STM32 v1.0.5.91 / ESP32 v1.0.3.89 — 2026-05-08
 PCB Rev: D
 Source: c5686234-dirty
