@@ -1,5 +1,10 @@
 # Firmware Changelog — oliver
 
+## STM32 v1.0.5.95 / ESP32 v1.0.3.93 — 2026-05-13
+PCB Rev: B
+Source: 7acaf4f2-dirty
+- version bump for testing OTA triggering
+
 ## STM32 v1.0.5.94 / ESP32 v1.0.3.92 — 2026-05-13
 PCB Rev: B
 Source: bcd9a298-dirty
