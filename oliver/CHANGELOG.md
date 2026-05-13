@@ -1,5 +1,10 @@
 # Firmware Changelog — oliver
 
+## STM32 v1.0.5.92 / ESP32 v1.0.3.90 — 2026-05-13
+PCB Rev: B
+Source: 792da6aa-dirty
+- adds ota provisioning for early testing
+
 ## STM32 v1.0.5.91 / ESP32 v1.0.3.89 — 2026-05-07
 PCB Rev: B
 Source: 4296fbca-dirty
