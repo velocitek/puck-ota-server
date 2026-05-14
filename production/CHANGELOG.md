@@ -1,6 +1,16 @@
 # Firmware Changelog — production
 
 ## 2026-05-14
+STM32 v1.0.5.102  
+ESP32 v1.0.3.100  
+PCB Rev: D
+
+Source: cfadbdbe
+
+- Fleet Waves as RC2 in hardcoded-provisioning for backup
+- Tide Shells as PIN2 in hardcoded-provisioning for backup
+
+## 2026-05-14
 STM32 v1.0.5.101  
 ESP32 v1.0.3.99  
 PCB Rev: D
