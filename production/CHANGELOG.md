@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-05-14
+STM32 v1.0.5.101
+ESP32 v1.0.3.99
+PCB Rev: D
+
+Source: edaa5205-dirty
+
+- dummy Version bump for charles to test OTA update with No Role
+
 ## STM32 v1.0.5.100 / ESP32 v1.0.3.98 — 2026-05-14
 PCB Rev: D
 Source: 959deff9-dirty
