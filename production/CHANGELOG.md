@@ -1,5 +1,10 @@
 # Firmware Changelog — production
 
+## STM32 v1.0.5.100 / ESP32 v1.0.3.98 — 2026-05-14
+PCB Rev: D
+Source: 959deff9-dirty
+- adds OTA capability while NO ROLE
+
 ## STM32 v1.0.5.98 / ESP32 v1.0.3.96 — 2026-05-13
 PCB Rev: D
 Source: fd45d51f
