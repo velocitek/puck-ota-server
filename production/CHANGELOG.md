@@ -1,5 +1,15 @@
 # Firmware Changelog — production
 
+## 2026-05-15
+STM32 v1.0.5.103  
+ESP32 v1.0.3.101  
+PCB Rev: D
+
+Source: e929fcdc-dirty
+
+- FLEET WAVES -> COMPETITOR 1 -> 001
+- TIDE SHELLS -> COMPETITOR 2 -> 002
+
 ## 2026-05-14
 STM32 v1.0.5.102  
 ESP32 v1.0.3.100  
