@@ -1,5 +1,15 @@
 # Firmware Changelog — oliver
 
+## 2026-05-19
+STM32 v1.0.5.104  
+ESP32 v1.0.3.102  
+PCB Rev: B
+
+Source: ac6fb101
+
+- adds finish timestamp to boat reports and a "resurvey base" button to reset the stm on the base
+- ready for initial testing
+
 ## 2026-05-13
 STM32 v1.0.5.97  
 ESP32 v1.0.3.95  
