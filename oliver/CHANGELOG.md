@@ -1,6 +1,15 @@
 # Firmware Changelog — oliver
 
 ## 2026-05-20
+STM32 v1.0.5.106  
+ESP32 v1.0.3.104  
+PCB Rev: B
+
+Source: 3c5cdb48-dirty
+
+- Modifies Hard Coded provisioning so save a reprovisioning step on the next update
+
+## 2026-05-20
 STM32 v1.0.5.105  
 ESP32 v1.0.3.103  
 PCB Rev: B
