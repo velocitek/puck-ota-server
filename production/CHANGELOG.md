@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-05-20
+STM32 v1.0.5.107  
+ESP32 v1.0.3.105  
+PCB Rev: D
+
+Source: 6a223fd6
+
+- first "Production" release of: Finishes, Resurvey Base, and Read Provisioning changes
+
 ## 2026-05-15
 STM32 v1.0.5.103  
 ESP32 v1.0.3.101  
