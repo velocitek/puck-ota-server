@@ -1,5 +1,14 @@
 # Firmware Changelog — oliver
 
+## 2026-05-20
+STM32 v1.0.5.105  
+ESP32 v1.0.3.103  
+PCB Rev: B
+
+Source: a3939933
+
+- improves robustness of provisioning reading
+
 ## 2026-05-19
 STM32 v1.0.5.104  
 ESP32 v1.0.3.102  
