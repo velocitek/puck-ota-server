@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-05-28
+STM32 v1.0.5.111  
+ESP32 v1.0.3.109  
+PCB Rev: D
+
+Source: 0858188d
+
+- fixes NO ROLE -> WITH ROLE provisioning reset. No longer requires power cycle after being provisioned with a role
+
 ## 2026-05-20
 STM32 v1.0.5.107  
 ESP32 v1.0.3.105  
