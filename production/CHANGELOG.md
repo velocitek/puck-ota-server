@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-06-03
+STM32 v1.0.5.115  
+ESP32 v1.0.3.113  
+PCB Rev: D
+
+Source: e4741838-dirty
+
+- OTA Testing new v112 OTA capability on ESP
+
+## 2026-06-03
 STM32 v1.0.5.114  
 ESP32 v1.0.3.112  
 PCB Rev: D
