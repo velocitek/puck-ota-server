@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-06-03
+STM32 v1.0.5.118  
+ESP32 v1.0.3.118  
+PCB Rev: D
+
+Source: f2a8152c-dirty
+
+- hopefully fixes CHartedSails NO TRACKS found error
+
+## 2026-06-03
 STM32 v1.0.5.117  
 ESP32 v1.0.3.117  
 PCB Rev: D
