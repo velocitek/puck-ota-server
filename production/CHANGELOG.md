@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-06-03
+STM32 v1.0.5.119  
+ESP32 v1.0.3.119  
+PCB Rev: D
+
+Source: f9946b34-dirty
+
+- Now with the right Commit to include the below updates to fix ChartedSails No Track issue
+
+## 2026-06-03
 STM32 v1.0.5.118  
 ESP32 v1.0.3.118  
 PCB Rev: D
