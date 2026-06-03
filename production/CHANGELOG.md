@@ -1,5 +1,16 @@
 # Firmware Changelog — production
 
+## 2026-06-02
+STM32 v1.0.5.113  
+ESP32 v1.0.3.111  
+PCB Rev: D
+
+Source: 1e664dd1-dirty
+
+- Adds Session Header to every log file (fixes CHartedSails NoFix error)
+- New log files now created when start times are set not on actual start times (ie timer = 0)
+- adds STM & ESP reset on ESP Error states - tries 3x before persisting error
+
 ## 2026-05-28
 STM32 v1.0.5.111  
 ESP32 v1.0.3.109  
