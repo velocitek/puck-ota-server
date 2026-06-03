@@ -1,6 +1,16 @@
 # Firmware Changelog — production
 
 ## 2026-06-03
+STM32 v1.0.5.116  
+ESP32 v1.0.3.116  
+PCB Rev: D
+
+Source: 0ee2a4d1
+
+- fixes OTA stack overflow issues
+- changes OTA LED flashes to 1 in 6 LEDs
+
+## 2026-06-03
 STM32 v1.0.5.115  
 ESP32 v1.0.3.113  
 PCB Rev: D
