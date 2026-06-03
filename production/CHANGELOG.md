@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-06-03
+STM32 v1.0.5.117  
+ESP32 v1.0.3.117  
+PCB Rev: D
+
+Source: 8df85201
+
+- adds more retries for STM Checkin to improve STM Verifcation on OTA reliability
+
+## 2026-06-03
 STM32 v1.0.5.116  
 ESP32 v1.0.3.116  
 PCB Rev: D
