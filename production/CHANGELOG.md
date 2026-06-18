@@ -1,6 +1,16 @@
 # Firmware Changelog — production
 
 ## 2026-06-18
+STM32 v1.0.5.121  
+ESP32 v1.0.3.121  
+PCB Rev: D
+
+Source: 4f50f340
+
+- finalizes >255 Track count fix - TESTED
+- also improves mass delete functionality
+
+## 2026-06-18
 STM32 v1.0.5.120  
 ESP32 v1.0.3.120  
 PCB Rev: D
