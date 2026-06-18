@@ -1,5 +1,16 @@
 # Firmware Changelog — production
 
+## 2026-06-18
+STM32 v1.0.5.120  
+ESP32 v1.0.3.120  
+PCB Rev: D
+
+Source: 1d23c007
+
+- fixes 255 track limit on Puck FW and puck_manager
+- this was a BT protocol issue so will require ChartedSails & TracTrac updates
+- UNTESTED - this release is to complete initial testing
+
 ## 2026-06-03
 STM32 v1.0.5.119  
 ESP32 v1.0.3.119  
