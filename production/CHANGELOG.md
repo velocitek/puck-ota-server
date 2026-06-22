@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-06-22
+STM32 v1.0.5.122  
+ESP32 v1.0.3.122  
+PCB Rev: D
+
+Source: ce4c8794-dirty
+
+- testing STM FW Verifcation and I2C Buffer improvements
+
 ## 2026-06-18
 STM32 v1.0.5.121  
 ESP32 v1.0.3.121  
