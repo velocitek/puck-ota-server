@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-06-22
+STM32 v1.0.5.125  
+ESP32 v1.0.3.125  
+PCB Rev: D
+
+Source: 57a8c389-dirty
+
+- testing the OTA Update LEDs
+
+## 2026-06-22
 STM32 v1.0.5.124  
 ESP32 v1.0.3.124  
 PCB Rev: D
