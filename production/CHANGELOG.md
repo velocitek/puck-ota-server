@@ -1,5 +1,16 @@
 # Firmware Changelog — production
 
+## 2026-06-25
+STM32 v1.0.5.127  
+ESP32 v1.0.3.127  
+PCB Rev: D
+
+Source: 25f26549-dirty
+
+- adds Timer Sync improvements - all time based on Puck PPS
+- adds new I2C timer sync traffic for timer syncronization between stm & esp
+- new BLE characteristic for time syncing with prosmart app
+
 ## 2026-06-22
 STM32 v1.0.5.125  
 ESP32 v1.0.3.125  
