@@ -1,5 +1,14 @@
 # Firmware Changelog — oliver
 
+## 2026-06-25
+STM32 v1.0.5.128  
+ESP32 v1.0.3.128  
+PCB Rev: B
+
+Source: 99f9b9be-dirty
+
+- Timer Sync changes for testing on my older pucks
+
 ## 2026-05-20
 STM32 v1.0.5.106  
 ESP32 v1.0.3.104  
