@@ -1,5 +1,14 @@
 # Firmware Changelog — oliver
 
+## 2026-06-26
+STM32 v1.0.5.130  
+ESP32 v1.0.3.130  
+PCB Rev: B
+
+Source: ddcdb99e-dirty
+
+- adds more robust LED code for hopefully eliminating ghost LEDs
+
 ## 2026-06-25
 STM32 v1.0.5.128  
 ESP32 v1.0.3.128  
