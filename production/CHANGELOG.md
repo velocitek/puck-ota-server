@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-06-26
+STM32 v1.0.5.132  
+ESP32 v1.0.3.132  
+PCB Rev: D
+
+Source: 57030e13-dirty
+
+- removes 60s finish crossing timer, now records actual start crossing times
+
+## 2026-06-26
 STM32 v1.0.5.129  
 ESP32 v1.0.3.129  
 PCB Rev: D
