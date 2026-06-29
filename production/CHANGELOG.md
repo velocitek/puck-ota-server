@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-06-29
+STM32 v1.0.5.134  
+ESP32 v1.0.3.134  
+PCB Rev: D
+
+Source: d6e1f9df-dirty
+
+- reverts to keeping legacy track count list and delete file mechanisms to preserve Charted sails usability 
+
 ## 2026-06-26
 STM32 v1.0.5.132  
 ESP32 v1.0.3.132  
