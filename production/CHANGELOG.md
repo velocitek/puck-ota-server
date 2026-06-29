@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-06-29
+STM32 v1.0.5.135  
+ESP32 v1.0.3.135  
+PCB Rev: D
+
+Source: a7b8fa57-dirty
+
+- fixes slow >255 log loading
+
+## 2026-06-29
 STM32 v1.0.5.134  
 ESP32 v1.0.3.134  
 PCB Rev: D
