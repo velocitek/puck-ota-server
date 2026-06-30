@@ -1,5 +1,15 @@
 # Firmware Changelog — oliver
 
+## 2026-06-30
+STM32 v1.0.5.137  
+ESP32 v1.0.3.137  
+PCB Rev: B
+
+Source: 4a4edffb-dirty
+
+- adds base OTA updates so it doesn't call for OTA requests constantly - now it times out
+- ESP also stores the STM version to help reduce runnaway conditions for updates
+
 ## 2026-06-26
 STM32 v1.0.5.133  
 ESP32 v1.0.3.133  
