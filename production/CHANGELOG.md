@@ -1,5 +1,15 @@
 # Firmware Changelog — production
 
+## 2026-07-01
+STM32 v1.0.5.138  
+ESP32 v1.0.3.138  
+PCB Rev: D
+
+Source: 6fbccec4-dirty
+
+- removes finish state (no more Blue lights on finishing)
+- reduces Base OTA Broadcast to 30seconds
+
 ## 2026-06-29
 STM32 v1.0.5.136  
 ESP32 v1.0.3.136  
