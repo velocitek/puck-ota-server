@@ -1,5 +1,15 @@
 # Firmware Changelog — oliver
 
+## 2026-07-01
+STM32 v1.0.5.140  
+ESP32 v1.0.3.140  
+PCB Rev: B
+
+Source: dae3a270-dirty
+
+- removes FINISH state and Blue LEDS when finishing
+- reduces Base OTA broadcast to 30 seconds
+
 ## 2026-06-30
 STM32 v1.0.5.137  
 ESP32 v1.0.3.137  
