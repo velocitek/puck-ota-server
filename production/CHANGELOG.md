@@ -1,5 +1,19 @@
 # Firmware Changelog — production
 
+## 2026-07-02
+STM32 v1.0.6.1  
+ESP32 v1.0.6.1  
+PCB Rev: D
+
+Source: b1899bec-dirty
+
+- Release Candidate for Sail Newport 2026
+- OTA Reliability Improvements - base broadcasting, stm verification
+- GPS time sync now driven from Base puck
+- Finish line improvement (no turning blue)
+- ms accurate cross time now added
+- LED ring ghost light fix
+
 ## 2026-07-01
 STM32 v1.0.5.138  
 ESP32 v1.0.3.138  
