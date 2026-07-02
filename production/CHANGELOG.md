@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-07-02
+STM32 v1.0.6.2  
+ESP32 v1.0.6.2  
+PCB Rev: D
+
+Source: 2662445d-dirty
+
+- last deploy failed on github...
+
+## 2026-07-02
 STM32 v1.0.6.1  
 ESP32 v1.0.6.1  
 PCB Rev: D
