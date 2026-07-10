@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-07-10
+STM32 v1.0.6.3  
+ESP32 v1.0.6.3  
+PCB Rev: B
+
+Source: 5054126a-dirty
+
+- Updating rev B puck to latest FW
+
 ## 2026-07-02
 STM32 v1.0.6.2  
 ESP32 v1.0.6.2  
