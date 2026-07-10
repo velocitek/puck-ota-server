@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-07-10
+STM32 v1.0.6.4  
+ESP32 v1.0.6.4  
+PCB Rev: D
+
+Source: 46061356-dirty
+
+- rev D, same as v.1.0.6.2
+
+## 2026-07-10
 STM32 v1.0.6.3  
 ESP32 v1.0.6.3  
 PCB Rev: B
