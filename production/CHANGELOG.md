@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-07-23
+STM32 v1.0.6.5  
+ESP32 v1.0.6.5  
+PCB Rev: B
+
+Source: 92997aac
+
+- TracTrac Specific Release - latest OTA Provisioning FW with TracTracc trac hard_coded_provisioning_fallback. No Calibration missing workaround
+
 ## 2026-07-10
 STM32 v1.0.6.4  
 ESP32 v1.0.6.4  
