@@ -1,5 +1,14 @@
 # Firmware Changelog — oliver
 
+## 2026-07-27
+STM32 v1.0.7.2  
+ESP32 v1.0.7.2  
+PCB Rev: B
+
+Source: fa73807b-dirty
+
+- attempt 3 to get revB to compile
+
 ## 2026-07-01
 STM32 v1.0.5.140  
 ESP32 v1.0.3.140  
