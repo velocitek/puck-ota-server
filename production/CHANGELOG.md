@@ -1,5 +1,20 @@
 # Firmware Changelog — production
 
+## 2026-08-04
+STM32 v1.0.7.3  
+ESP32 v1.0.7.3  
+PCB Rev: D
+
+Source: d4e1d6f7-dirty
+
+- Provisioning version no longer orders images — any CRC-valid image is accepted, so a base reused from a past regatta no longer silently rejects a new fleet's v1
+- Blank/all-zero provisioning images now rejected (they pass a CRC check on their own)
+- Hardcoded provisioning is now purely a fallback for blank or corrupt EEPROM
+- Fixed stale pending provisioning surviving a GPS dropout and being re-broadcast over newer data on re-entry to base state
+- ESP32 BLE mirror now reflects only what the STM32 actually committed, so the web app's provisioning sync check can be trusted
+- Fixed ~1 Hz "Invalid packet" log spam on any base waiting for GPS
+- Burn-in LoRa summary no longer hangs part way through printing
+
 ## 2026-07-23
 STM32 v1.0.6.5  
 ESP32 v1.0.6.5  
