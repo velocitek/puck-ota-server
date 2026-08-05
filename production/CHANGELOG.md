@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-08-05
+STM32 v1.0.7.5  
+ESP32 v1.0.7.5  
+PCB Rev: B
+
+Source: b9bbe2ab
+
+- special Rev B release for Wind Rudder update
+
 ## 2026-08-04
 STM32 v1.0.7.4  
 ESP32 v1.0.7.4  
