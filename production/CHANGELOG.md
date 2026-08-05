@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-08-05
+STM32 v1.0.7.6  
+ESP32 v1.0.7.6  
+PCB Rev: D
+
+Source: 1adc6ec6
+
+- reverting back to rev d (same as v1.0.7.4)
+
+## 2026-08-05
 STM32 v1.0.7.5  
 ESP32 v1.0.7.5  
 PCB Rev: B
