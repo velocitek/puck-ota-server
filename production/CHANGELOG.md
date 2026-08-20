@@ -1,5 +1,14 @@
 # Firmware Changelog — production
 
+## 2026-08-20
+STM32 v1.0.8.1  
+ESP32 v1.0.8.1  
+PCB Rev: D
+
+Source: d833ef11
+
+- adds base race update summary logging to BASE SD card. untested
+
 ## 2026-08-05
 STM32 v1.0.7.6  
 ESP32 v1.0.7.6  
