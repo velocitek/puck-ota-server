@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-08-20
+STM32 v1.0.8.2  
+ESP32 v1.0.8.2  
+PCB Rev: D
+
+Source: c6213bc2
+
+- quick bump to test OTA updates on this 8.1 & 8.2
+
+## 2026-08-20
 STM32 v1.0.8.1  
 ESP32 v1.0.8.1  
 PCB Rev: D
