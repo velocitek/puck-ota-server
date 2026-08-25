@@ -1,5 +1,20 @@
 # Firmware Changelog — production
 
+## 2026-08-25
+STM32 v1.0.8.3  
+ESP32 v1.0.8.3  
+PCB Rev: D
+
+Source: ec6f4b90
+
+- **Line-end link telemetry** (`db1ca5d2c` + `ec6f4b909`, unreleased)
+- **Marks now monitor each other.** RC and Pin report how well they hear the opposite end, so the app can flag a mark whose transmit range has collapsed — which the base cannot see from alongside it. No airtime cost.
+- **`MarkReport` layout changed** (still 25 bytes). **Flash both marks together**; a mixed pair reports "link unknown".
+- **Base publishes silence instead of stale data** when a report fails to parse (it was re-sending the previous period's as fresh), and no longer ACKs a mark slot it couldn't decode.
+- **Mark's "RSSI seen by rover" corrected** — it was reporting whatever frame was last received rather than the base's broadcast.
+- **Slot receive-timeout underflow fixed** — could open a 65-second RX window at a slot boundary.
+- **Caveat:** the RC's receiver duty rises ~56% → ~97%; unmeasured, needs a bench
+
 ## 2026-08-20
 STM32 v1.0.8.2  
 ESP32 v1.0.8.2  
