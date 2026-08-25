@@ -1,6 +1,16 @@
 # Firmware Changelog — production
 
 ## 2026-08-25
+STM32 v1.0.8.5  
+ESP32 v1.0.8.5  
+PCB Rev: D
+
+Source: 85450d6d-dirty
+
+- Outgoing-to-ESP32 ring made interrupt-safe: every ring mutation now runs in a critical section, and the I2C consumer copies packets out atomically instead of transmitting from live ring memory — fixes frame corruption, mid-transfer overwrites, and queue-wedge races between the main loop, radio IRQ, and LED IRQ (the calibration-hang defect class, live in the race path). Worst-case interrupt-masked window measured ~450 µs (typical < 100 µs).
+- Tests: native two-thread concurrency hammer (400k packets, zero corruption) + on-target ISR stress harness (RTC-interrupt producer vs main-loop consumer).
+
+## 2026-08-25
 STM32 v1.0.8.4  
 ESP32 v1.0.8.4  
 PCB Rev: D
