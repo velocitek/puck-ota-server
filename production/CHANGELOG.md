@@ -1,6 +1,20 @@
 # Firmware Changelog — production
 
 ## 2026-08-25
+STM32 v1.0.8.4  
+ESP32 v1.0.8.4  
+PCB Rev: D
+
+Source: 5ce77e0b-dirty
+
+- STM32 firmware
+- OTA reliability: boot check-in now runs before calibration retrieval. Pucks with missing/invalid calibration data (never-calibrated spares, burn-in sentinels) no longer fail OTA verification with a phantom "missed check-in." Calibration retrieval also gained bounded retries, and failures split into two flash codes: new code 10 = bad/missing calibration data (permanent, needs field cal), code 6 = actual boot-comms failure (auto-recovers).
+- IWDG watchdog + fault handlers. Crashes and hangs now self-recover in ~16 s instead of requiring a power cycle.
+- Crash forensics on the SD card. Faults write a new STM_FAULT record to the VTK log (faulting PC, fault status register, fault type, last main-loop breadcrumb) — diagnosable after race day, not just on a live console.
+- Every STM_RESET record now carries the last main-loop breadcrumb, so repeated resets of a misbehaving puck cluster on the code section that hung (0 = cold boot / older firmware).
+- LoRa RX hardening: wire-declared lengths and chunk counts are now bounds-checked, closing the unbounded-packet-length exposure from the August reliability review..
+
+## 2026-08-25
 STM32 v1.0.8.3  
 ESP32 v1.0.8.3  
 PCB Rev: D
