@@ -1,5 +1,26 @@
 # Firmware Changelog — production
 
+## 2026-08-26
+STM32 v1.0.8.7  
+ESP32 v1.0.8.7  
+PCB Rev: D
+
+Source: e935c2e1
+
+- Firmware (STM32)
+- Base now logs its position to VTK: 1 Hz VtkTrackpoint per PPS + the RTCM 1006 surveyed ARP (sm_base_station.c)
+- New portable RTCM 1006 parser: CRC-24Q validated, 38-bit ECEF → WGS84 (Bowring, double), zero-ARP guarded (rtcm_1006.c/h)
+- New VTK record VtkBaseSurveyedPosition (oneof tag 31), schema 3→4, nanopb regenerated
+- Surveyed emits: once per boot + on-change, rate-limited to 1/5 s while wandering, trailing frozen value guaranteed, no epoch-zero latch
+- RTCM hardening: frame_offset on RtcmMessage, caller-bounded enumeration (was a latent stack overflow), edge-triggered table-full warning
+- Five review-found reliability fixes: sm_mark Unix-millis trackpoint bug; cal-retry marker misdiagnosis (code 6 vs 10 reboot loop); VtkSendStmReset success-latch; stale noinit recovery-cell gate in fault_record; staged I2C packet age-out (scoped to TIME_SYNC only)
+- VtkSendTrackpointNow() captures the anchor clock internally (kills the hand-supplied-millis bug class); VTK_SCHEMA_VERSION named constant
+- Decoders
+- decode_vtk.py + puck_manager.html: wall-clock anchor now re-anchors on every session header (multi-boot files rendered 128 s off before); schema checked per header; tag 31 rendering (SURVEYED_POS, --type surveyed, MID-SURVEY marker); byte-parity between the two verified
+- New pytest module (wire format, rendering, anchor, schema cross-check vs firmware)
+- Docs
+- All four VTK docs to schema 4: §6.9 for tag 31, §8 multi-session anchoring rule, the "post-survey base track is the pinned ARP, not a live track" warning, stale VtkSendStmReset/missing VtkSendStmFault rows fixed, Appendix A re-pasted byte-exact, HTML pandoc-regenerated
+
 ## 2026-08-25
 STM32 v1.0.8.6  
 ESP32 v1.0.8.6  
