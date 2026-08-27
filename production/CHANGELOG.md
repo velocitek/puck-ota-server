@@ -1,5 +1,20 @@
 # Firmware Changelog — production
 
+## 2026-08-27
+STM32 v1.0.8.9  
+ESP32 v1.0.8.9  
+PCB Rev: D
+
+Source: ca9730b5-dirty
+
+- Firmware (STM32)
+- RC and Pin line-end pucks now publish a start countdown on the BLE Display Service; previously only competitor pucks ever filled a DisplayUpdate, so a display connected to a line end read zeros (sm_range_test_master.c)
+- sm_mark now calls SetStartTime() alongside the existing ESP32 forward, and clears it on CANCEL_COUNTDOWN so a cancelled sequence can't leave the display counting down to a start that never comes (sm_mark.c)
+- Mark display updates fire on EV_NEW_GPS_DATA behind the boat's existing kDisplayUpdatePeriodMs gate: EV_ICM_DATA_READY never fires on a mark (no IMU), so both roles land on the 5 Hz GPS rate
+- Countdown blanks to INVALID_SECONDS_TO_START (65535) + DISPLAY_STATUS_NONE when nothing is scheduled or there's no fix, rather than the boat's 300 s idle placeholder, which on an RC boat would read as a real five-minute sequence
+- Mark display status derived directly from the start time; GetCurrentDisplayStatus() is boat-only (it reads the race management SM, which never runs in mark role)
+- No ESP32 change: the Display Service is already registered on every puck regardless of role
+
 ## 2026-08-26
 STM32 v1.0.8.8  
 ESP32 v1.0.8.8  
