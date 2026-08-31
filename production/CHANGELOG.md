@@ -1,5 +1,16 @@
 # Firmware Changelog — production
 
+## 2026-08-31
+STM32 v1.0.8.10  
+ESP32 v1.0.8.10  
+PCB Rev: D
+
+Source: e0a9eaef
+
+- Firmware (STM32)
+- Line-end pucks (RC/Pin) now act on a start time only when it changes, matching sm_boat. The base has no start-time expiry, so an uncleared sequence stays on the air indefinitely and the mark was re-pushing to the ESP32 and re-emitting a VTK session header every second — a 29-minute log held 1765 session headers for a single countdown (sm_mark.c)
+- The change latch is set only once SendStartTimeToEsp32() reports the packet queued, so a full outgoing ring retries on the next rebroadcast instead of dropping the start time until it next changes Two notes: this is STM32-only again, and it's the fix that's unreleased — the countdown feature itself already went out in v1.0.8.9, so if you're writing the 1.0.8.9 entry that's where the earlier bullets belong, not these.
+
 ## 2026-08-27
 STM32 v1.0.8.9  
 ESP32 v1.0.8.9  
