@@ -1,5 +1,32 @@
 # Firmware Changelog — production
 
+## 2026-09-01
+STM32 v1.0.8.12  
+ESP32 v1.0.8.12  
+PCB Rev: D
+
+Source: 196a2f8c
+
+- ## 2026-09-01
+- STM32 v1.0.8.12
+- ESP32 v1.0.8.12
+- PCB Rev: D
+- Source: 196a2f8c1 (+ 8593b804d)
+- Root-cause fixes from the Aug-31 Pin reset-loop incident (152 NRSTs in 32 min, zero forensics).
+- Firmware (STM32)
+- Bounded every I2C wait on the shared bus: the ESP32-poll SM's unbounded idle spin (the field hang site, breadcrumb 5) and the IMU driver's error-blind write spin; a wedged transaction now costs one aborted poll (~1 s, with full bus Deinit/recover/Init), not a permanent main-loop hang (sm_poll_esp32.c, i2c.c, icm20648.c)
+- IMU init is a 3-attempt recovery ladder (soft reset + 9-clock bus recovery per attempt, watchdog-kicked); marks/base boot DEGRADED without attitude on total failure (yellow ring during SoC display + VTK IMU_DEGRADED record) instead of dying — boats fail loudly with new flash code 11 rather than the old silent zombie whose init result was discarded (icm20648.c, sm_range_test_master.c, main.c)
+- STM_RESET/STM_FAULT records now emit on the first main-loop tick with timestamp 0 and boot_count, no longer gated behind ESP comms + a GPS fix — a reset-looping puck logs its story every boot (sm_range_test_master.c)
+- Lost-RX-completion latch in the IMU read path ages out after 500 ms instead of silencing the IMU for the rest of the session; FIFO-retry shadow bug fixed; sensor-layer retry exhaustion fails forward instead of freezing until the IWDG (icm_packet_retrieval.c, i2c_sensor.c)
+- External-NRST-only resets count toward the boot-counter wear cap (fault_record.c)
+- Firmware (ESP32)
+- STM-silence threshold 10 s → 30 s so the STM32's own IWDG wins true hangs (breadcrumb-labelled resets); one NRST per silence episode with a debounced re-arm, and the "already reset once" guard + recovery check actually work (the old guard cleared every heartbeat and the recovery check passed on a stale check-in latch — the two bugs that made the loop unbounded) (stm_health_monitor.c, stm_health_policy)
+- Every recovery decision (NRST, escalation, gave-up, STM boot observed) is now an SD-visible VTK audit record, flushed before escalation reboots — closes the IC37 "log the reason alongside each NRST" follow-up (esp_health_log.c, vtk_logger.c)
+- Flash codes 11 (IMU init fail) joins the budgeted auto-retry ladder
+- Tooling
+- decode_vtk.py renders the new ESP_HEALTH/IMU_DEGRA records, and flash-code names; enum-sync pytestguards added (scripts/decode_vtk.py, docs)
+- Bench-verified on "bay boatman": harness suites green (including the ladder recovering a torn-down bus on silicon), degraded full-app boot, and the halted-core silence test — oncovery.
+
 ## 2026-08-31
 STM32 v1.0.8.11  
 ESP32 v1.0.8.11  
