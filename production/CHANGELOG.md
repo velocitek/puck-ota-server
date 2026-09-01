@@ -1,6 +1,22 @@
 # Firmware Changelog — production
 
 ## 2026-09-01
+STM32 v1.0.8.13  
+ESP32 v1.0.8.13  
+PCB Rev: D
+
+Source: 6496994f
+
+- Firmware (STM32)
+- BLE provisioning un-broken (two v1.0.8.12 regressions from the reset-loop hardening):
+- The ESP32-poll deadline now scales with the expected response size (1 s + 8 ms/byte, ~6.5 s for a provisioning frame). The flat 1 s deadline aborted every ~683 B provisioning transfer — the response streams through the ESP slave's 32-byte FIFO with clock-stretching refills and legitimately takes >1 s; 162 of 239 provisioning polls died in RECEIVE on the bench. Small polls (check-in, start time) were never affected (sm_poll_esp32.c)
+- Orphaned poll responses are now drained: the ESP32's I2C slave TX path is a byte-stream ring with no purge API, so a response preloaded but never read (aborted poll, or an STM reset between request and read) skewed every later response — check-in echoes then failed all 5 attempts into flash code 6, recoverable only by an ESP reboot. This is also the mechanism behind the historical post-OTA "verify races I2C congestion → code 6" failures. PollEsp32DrainStaleResponse() (bounded read-and-discard of one max-size frame) runs in the abort path and the check-in retry, so any skew self-heals within one retry (sm_poll_esp32.c, sm_range_test_master.c)
+- The outgoing pump stays off the bus while a poll transaction is in flight — its 50 ms idle-wait was flagging the bus errored and force-healing the shared completion flags mid-DMA on every main-loop pass during large reads (i2c_send_to_esp.c)
+- No ESP32 change
+- Bench-verified: provisioning polls complete and accept on every cycle (zero aborts); an STM-only reset mid-operation — previously a deterministic 5×invalid → code-6 → ESP-reboot storm — now recovers on the second check-in attempt with zero flash codes.
+- One logistics note: ce75e38ef tagged v1.0.8.12 without these two commits, so anything already flashed as 8.12 has the provisioning breakage — I'd cut these as v1.0.8.13 (or re-cut 8.12 if nothing shipped) so version reports distinguish fixed pucks.
+
+## 2026-09-01
 STM32 v1.0.8.12  
 ESP32 v1.0.8.12  
 PCB Rev: D
