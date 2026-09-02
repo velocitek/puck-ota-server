@@ -1,5 +1,21 @@
 # Firmware Changelog — production
 
+## 2026-09-02
+STM32 v1.0.8.15  
+ESP32 v1.0.8.15  
+PCB Rev: D
+
+Source: 4a684d78
+
+- STM32
+- Boats near the base no longer reboot-loop while waiting for the base to come up: the 180 s no-ack self-reset now fires only after the boat has been acknowledged at least once since boot (genuine lost contact), not when the base simply isn't on the air yet
+- Boat self-reset decisions and base-ack bookkeeping now require a valid GPS timestamp — a fix dropout can no longer feed garbage time math that could reset a healthy boat
+- New RESET_INTENT VTK record logged just before every intentional reset or power-off, with the reason: boat lost base contact (incl. seconds since last ack), role change, critical battery (incl. SoC), or charger-present shutdown — so end-of-day logs show why each planned reset happened, and a reset without one is almost certainly unplanned
+- Reset-intent records push past the boot-window log suppression and congestion gate, and the role-change reboot now drains the outgoing log queue fully (up to 1 s) instead of a fixed 200 ms, so the explaining record actually reaches the SD card ESP32
+- BLE resurvey command now logs a RESET_INTENT audit record before pulsing the STM reset line
+- Health-event logger made thread-safe (it's now called from the Bluetooth task as well) with reduced stack usage on that task Tools/Docs
+- decode_vtk.py decodes RESET_INTENT records with per-reason detail (--type reset_intent); VTK format guide updated to v1.4.0 (§9.8 reason codes, enum tables brought current) Known gap (documented, not a bullet unless you want it): resets issued by the OTA/flashing flow don't emit intents — those are identifiable from the surrounding OTA context.
+
 ## 2026-09-01
 STM32 v1.0.8.14  
 ESP32 v1.0.8.14  
