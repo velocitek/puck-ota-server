@@ -1,5 +1,37 @@
 # Firmware Changelog — production
 
+## 2026-09-04
+STM32 v1.0.8.17  
+ESP32 v1.0.8.17  
+PCB Rev: D
+
+Source: 84a337f4
+
+- STM32
+- Detect PPS dropouts: a new monitor reports PPS: LOST when the GPS still has a fix but no pulse has arrived for 2.5 s, and PPS: REGAINED (with the outage length, dropout count and longest outage) when pulses return — the "ghost puck" state that previously left no trace.
+- Self-recover from a PPS outage: after 10 s without a pulse in MARK/BOAT/BASE the firmware resets the GPS module and re-runs the normal boot sequence (re-config, wait for fix, back to the role state); capped at 3 resets per boot, one per outage.
+- New VTK record PPS_STATE_CHANGE (LOST / REGAINED / GPS_RESET) with ms duration and PB8/TIM2/fix diagnostic bits; decode_vtk.py decodes it (--type pps_state_change).
+- Provisioning poll self-heal: if the ESP32 serves a provisioning image the STM32 rejects (bad CRC) or reports an empty cache, the STM32 re-pushes its live image (PROV TX(poll-repair)) — first failure immediately, then at most once per 30 polls; deferred while a base has a pending image staged. Previously a poisoned cache was rejected once a second until reboot.
+- Base station now attributes ESP32 poll completions to the poll that actually ran (no more retrieving a stale buffer).
+- GPS UART init and PPS-callback registration are idempotent (needed by the recovery path; the callback table used to fill up on repeated base GPS init).
+- ESP32
+- Fixed the root cause of the poisoned provisioning cache: an empty PROVISIONING_DATA frame (echoed header, zero-length payload, valid checksum) was accepted and 676 B of receive-ring residue copied into the poll cache and BLE mirror. DISPLAY_UPDATE, PROVISIONING_DATA and MARK_LOCATIONS are now fixed-length message types, so truncated frames are rejected before any handler reads them.
+- Provisioning images are validated (embedded CRC32 + non-zero version) before being cached, both for STM32 pushes and BLE writes; rejects are logged with a reason.
+- BLE provisioning writes: chunk sequence checked, exact framed length required, torn prepare-writes and partial reassemblies cleared on disconnect.
+- Shared crc32 is now an ESP-IDF component (same algorithm as the STM32); test apps updated.
+- Tools / shared
+- decode_vtk.py: PPS_STATE_CHANGE event name, filter and flag decoding.
+- New native harnesses: test_pps_monitor (14 tests), test_provisioning_image_check (6), plus 7 new test_provisioning_data cases and 4 in the ESP32 i2c_protocol harness.
+- Battery SOC detection improvements to prevent Battery SAG triggering Power off
+- STM32
+- Competitor pucks no longer power themselves off on a healthy battery: the critical-battery shutdown now needs the loaded voltage under 3.55 V for 90 s straight (or under 3.40 V for 5 s), instead of five single ADC samples that the 30 s solid OCS LEDs could drag under the line on a cell resting at 17% (2026-09-03 bench incident)
+- Battery state of charge is now filtered (rest voltage over the last minute, hardware-oversampled ADC) everywhere it is shown or sent — RC display, boat and mark reports, boot LED bar and logs — ending the 17% <-> 0% flicker every second under LoRa/LED load
+- Critical-battery power-off logs exactly one RESET_INTENT record instead of one per second while the rail discharges
+- Tools/Docs
+- VTK device-update records carry the raw battery sample and the one-minute maximum in millivolts (battery_mv, battery_rest_mv) so a load-sag false alarm is visible after the fact; additive within schema 4, read as 0 on older logs
+- decode_vtk.py prints millivolts next to every bat= field; VTK format guide updated to v1.5.0, logging and BLE track-format docs brought current
+- result: Five battery-related changelog bullets extracted (three STM32, two Tools/Docs), ready to paste.
+
 ## 2026-09-02
 STM32 v1.0.8.16  
 ESP32 v1.0.8.16  
