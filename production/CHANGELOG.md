@@ -1,6 +1,18 @@
 # Firmware Changelog — production
 
 ## 2026-09-04
+STM32 v1.0.8.19  
+ESP32 v1.0.8.19  
+PCB Rev: D
+
+Source: d311bdd2
+
+- ESP32
+- Fixed: BLE provisioning pushes were rejected by the new packet validation (Expected message ID 13, but got 15) — puck manager reported "sent", but the puck never applied the image. The ESP32 now normalises the packet's header message id to PROVISIONING_DATA (with a warning) before validating, so pushes from existing backends work again.
+- Tools / backend
+- python_app/packetization.py: corrected MESSAGE_ID_PROVISIONING_DATA from 15 (CALIBRATION_SOLUTION) to 13 — every BLE provisioning packet the backend produced had been carrying the wrong header id; the old firmware ignored it, the new validation did not. Backends already deployed with the old constant remain compatible.
+
+## 2026-09-04
 STM32 v1.0.8.18  
 ESP32 v1.0.8.18  
 PCB Rev: D
