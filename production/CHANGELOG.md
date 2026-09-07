@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-09-07
+STM32 v1.0.8.22  
+ESP32 v1.0.8.22  
+PCB Rev: D
+
+Source: 491ff263-dirty
+
+- a revert back to FW version 1.0.8.19 because 1.0.8.21 was resseting all the time.
+
+## 2026-09-07
 STM32 v1.0.8.21  
 ESP32 v1.0.8.21  
 PCB Rev: D
