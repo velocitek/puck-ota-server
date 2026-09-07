@@ -1,6 +1,15 @@
 # Firmware Changelog — production
 
 ## 2026-09-07
+STM32 v1.0.8.21  
+ESP32 v1.0.8.21  
+PCB Rev: D
+
+Source: 52cb6210-dirty
+
+- version bump to test OTA on 8.20/21
+
+## 2026-09-07
 STM32 v1.0.8.20  
 ESP32 v1.0.8.20  
 PCB Rev: D
