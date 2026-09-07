@@ -1,5 +1,20 @@
 # Firmware Changelog — production
 
+## 2026-09-07
+STM32 v1.0.8.20  
+ESP32 v1.0.8.20  
+PCB Rev: D
+
+Source: ccbea6fb-dirty
+
+- STM32
+- Battery state of charge no longer climbs on an uncharged puck: the previous release derived the rest voltage from the maximum of the last minute of samples, so a single glitched ADC reading (up to 250 mV high, seen while the LED ring was lit) held the reported charge at 100% for a minute on a 60% cell. The rest voltage is now the 75th percentile of the last two minutes, which ignores up to a quarter of high glitches while still riding out the 30 s of solid LEDs after a start
+- Battery ADC acquisition rebuilt: the channel was sampling for 1.5 clock cycles instead of the intended 19.5 (the sampling-time field is a selector on this chip and the old value was silently masked), the trigger mode was wrong for once-a-second reads, and the converter had never been calibrated. It now samples for 20 µs, uses the low-frequency trigger mode, self-calibrates at boot, and reads the chip's internal reference alongside the battery so the result is corrected for the actual 3.3 V rail
+- Implausible battery readings above 4.5 V are reported in the log but no longer enter the charge estimate
+- Tools/Docs
+- Battery test harness gains a calibration table (raw counts, internal reference, rail voltage, pin and battery millivolts, 20 rows) for fitting the divider constants against a multimeter; those constants are nominal in this release and the absolute reading should be checked before the next race day
+- VTK battery_rest_mv now carries the 75th-percentile rest voltage (was the window maximum); wire format unchanged, format guide updated to v1.5.1
+
 ## 2026-09-04
 STM32 v1.0.8.19  
 ESP32 v1.0.8.19  
