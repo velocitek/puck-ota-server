@@ -1,6 +1,20 @@
 # Firmware Changelog — production
 
 ## 2026-09-08
+STM32 v1.0.8.24  
+ESP32 v1.0.8.24  
+PCB Rev: D
+
+Source: ca0bab04-dirty
+
+- ESP32
+- The front LED now lights within about a second of pressing the power button, as a single dim green pixel meaning "the puck is alive, let go". Customers were holding the button until they saw a light, which used to be the battery bar 4-7 s in, and crossing the ~8 s hardware hold-to-off, so pucks powered on and straight back off (IC37 Nationals). The button is invisible to firmware, so the fix is the light: the ESP32 owns the LED ring and now lights the pixel itself right after its LED init, before Bluetooth and before it resets the STM32; the battery bar replaces it a few seconds later. Bench-verified on rev D: 828 ms after the ESP32 starts, in every reset cycle and in two true cold boots, about 650 ms of which is the bootloader validating the image
+- The LED strip driver only hands back a framebuffer once init fully succeeded, so a failed init is a clean no-op instead of a write to freed memory
+- STM32
+- The ESP32's 3.3 V rail is enabled first thing in boot instead of ~2.4 s in, and the EEPROM boot-counter write now runs before it. That write is a whole-page erase and program with no recovery, and the ESP32's boot-time reset of the STM32 lands about 1 s after its rail comes up, so the write must be finished first; the old order could blank the page (boot count, provisioning image, calibration solution) if the rail is on from the button. Bench-verified: provisioning intact over six reset cycles and two cold boots, check-in on the first attempt every time
+- Cold-boot results from your two button presses. Pixel at 828 ms after the ESP32 started both times, check-in valid at ~11 s, provisioning loaded from EEPROM both times, and the only brownout lines were at the moment the latch dropped power. The STM32 side of those boots is missing because my capture script's RTT re-attach doesn't recover across a power outage; the ESP32 log covered what mattered.
+
+## 2026-09-08
 STM32 v1.0.8.23  
 ESP32 v1.0.8.23  
 PCB Rev: D
