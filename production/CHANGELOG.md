@@ -1,5 +1,26 @@
 # Firmware Changelog — production
 
+## 2026-09-08
+STM32 v1.0.8.23  
+ESP32 v1.0.8.23  
+PCB Rev: D
+
+Source: 4708bd0d-dirty
+
+- STM32
+- Pucks on v1.0.8.20/21 reset every few minutes in competitor role (a 7.5 h field log showed 218 resets, almost all bus faults inside the C library's number parser). The main stack was a 1 KB reservation at the top of SRAM1 with the heap directly beneath it and no guard, and the battery-filter change in .20 consumed the last 400 B of slack, so the stack was overwriting the heap. Heap and stack now live in the mostly empty SRAM2 with an 8 KB stack reserve. Bench-verified 48 min, one boot, zero faults; the measured peak stack depth (1.24 KB) confirms every earlier build was running ~200 B past the old reserve
+- Log lines produced inside interrupts — slot timing, radio receive/transmit, I2C/UART errors, about a hundred sites — are now formatted into a buffer and written by the main loop a few milliseconds later. The C library's printf is not interrupt-safe and could corrupt the heap whenever an interrupt logged while the main loop was logging; this closes that path with no change to the text. Whatever was still queued when a puck reset is printed first on the next boot, so the interrupt-side account of a hang is no longer lost
+- Fault records now include the stack pointer, and a new STACK_WATERMARK log record reports minimum free stack and heap use for this boot and the previous one — at boot, every 10 min, and whenever the margin shrinks — so the next squeeze is visible before it crashes
+- A competitor that resets after the gun, or drops its GPS fix for a moment, rejoins the race in progress instead of sitting in READY with the finish never recorded: a start time up to four hours old is accepted, the finish detector is re-armed without restarting the race, and GPS-loss is only declared after 3 s without a valid fix (the July logs showed 4–6 sub-second bounces per boat per race). Status 7 = REJOIN in the app
+- Competitors no longer revert a provisioning image received over LoRa to the ESP32's older mirror: the rover's own 1 Hz poll could answer with the stale copy before its push had drained, and versions do not order. A rover now ignores a poll answer carrying the image it just replaced until its push is echoed, re-pushes after five stale answers, and gives up after three re-pushes so a wedged ESP32 cannot strand it. Bench-verified 2026-09-08
+- Tools/Docs
+- decode_vtk.py renders the new STACK_WATERMARK record, the stack depth on STM_FAULT (sp_depth=), and the REJOIN status; VTK format guide 1.6.0 (event 14, fault flags layout), HTML regenerated
+- BLE track-format doc: stale FINISHED_STATE / 60 s gate text removed
+- VTK wire format unchanged apart from the new event id
+- prosmart_web (not part of the firmware release)
+- The start-signal sequence (5-min / 3-min) is now a property of the fleet, set in fleet provisioning and stored on the fleets row (migration 0015), so two operator tabs can no longer disagree about the countdown; Race Controls keeps only the length and gains "Arm Finish Line" on the same row. Offline-safe with a per-fleet cache; duplicating a fleet carries the sequence over
+- The session stoplight warns on a low base-station battery — including before any boat has reported — and the base SoC readout is colour-banded like the marks and boats
+
 ## 2026-09-07
 STM32 v1.0.8.22  
 ESP32 v1.0.8.22  
