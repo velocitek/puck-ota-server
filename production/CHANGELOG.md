@@ -1,5 +1,17 @@
 # Firmware Changelog — production
 
+## 2026-10-15
+STM32 v1.0.9.0  
+ESP32 v1.0.9.0  
+PCB Rev: D
+
+Source: 005fa7b9
+
+- Crossing record on the SD card (005fa7b9c, Oct 14). Every start or finish-line crossing the boat puck records now also lands in the VTK log as device-update event 16, with the stamped time after the gun, where along the line the hull crossed, the direction and the line length. Decoder and browser render it; three format docs updated.
+- Finishes timed on the first hull point (8537d0e24, Oct 14). The detector flipped on the minimum hull DTL, so downwind finishes were stamped when the stern crossed, 3 to 8 s late on IC37 logs from the Women's Invitational and by a different amount per boat. It now tracks both hull extremes and fires on whichever part reaches the far side first, in either direction. Wire format unchanged.
+- Base survives the RC boat moving (b26bd12cb, Oct 14). Root cause of the Women's Invitational base hangs. The base no longer pushes "now" as the fleet's start time when its fix returns, which was wiping every boat's finals. It self-recovers its GPS after 30 s without a fix instead of waiting forever, and logs that as event 15. ESP32 side: clock seeded from GPS time sync, VTK files append rather than truncate. STM32 and ESP32 must ship together.
+- Loose-board factory test (a00a7264d, ebe8bbc3c, Sep 21). The contract manufacturer's test app in loose_board_test.c reports its verdict on the screen and in the log, since bare PCBs have no LED board. The rest of that work is the factory kit scripts and procedure, not firmware.
+
 ## 2026-09-08
 STM32 v1.0.8.25  
 ESP32 v1.0.8.25  
