@@ -1,0 +1,6 @@
+# Exclude large archive subdirectories that contain old firmware versions
+# not referenced by any active versions.txt channel.
+# This keeps the GitHub Pages artifact small and avoids deployment timeouts.
+exclude:
+  - production/archive
+  - oliver/archive
